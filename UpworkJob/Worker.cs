@@ -25,7 +25,7 @@ namespace UpworkJob
                 try
                 {
                     DownloadCssFiles(_ftpServer, _ftpUsername, _ftpPassword, _remoteDirectory, _localDirectory);
-                    _logger.LogInformation("CSS files downloaded successfully at: {time}", DateTimeOffset.Now);
+                    _logger.LogInformation("CSV files downloaded successfully at: {time}", DateTimeOffset.Now);
                 }
                 catch (Exception ex)
                 {
@@ -48,7 +48,7 @@ namespace UpworkJob
                 while (!listReader.EndOfStream)
                 {
                     string fileName = listReader.ReadLine();
-                    if (fileName.EndsWith(".css"))
+                    if (fileName.EndsWith(".csv"))
                     {
                         string remoteFilePath = ftpServer + remoteDirectory + "/" + fileName;
                         string localFilePath = Path.Combine(localDirectory, fileName);
