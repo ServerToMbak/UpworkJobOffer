@@ -24,7 +24,7 @@ namespace UpworkJob
             {
                 try
                 {
-                    DownloadCssFiles(_ftpServer, _ftpUsername, _ftpPassword, _remoteDirectory, _localDirectory);
+                    DownloadCsvFiles(_ftpServer, _ftpUsername, _ftpPassword, _remoteDirectory, _localDirectory);
                     _logger.LogInformation("CSV files downloaded successfully at: {time}", DateTimeOffset.Now);
                 }
                 catch (Exception ex)
@@ -36,7 +36,7 @@ namespace UpworkJob
             }
         }
 
-        private void DownloadCssFiles(string ftpServer, string ftpUsername, string ftpPassword, string remoteDirectory, string localDirectory)
+        private void DownloadCsvFiles(string ftpServer, string ftpUsername, string ftpPassword, string remoteDirectory, string localDirectory)
         {
             FtpWebRequest listRequest = (FtpWebRequest)WebRequest.Create(ftpServer + remoteDirectory);
             listRequest.Method = WebRequestMethods.Ftp.ListDirectory;
